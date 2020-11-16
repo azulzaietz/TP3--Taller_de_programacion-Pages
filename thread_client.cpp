@@ -9,7 +9,6 @@ void ThreadClient:: run() {
     ssize_t bytes_received = 0;
     try {
         while ((bytes_received = peer->socket_receive(buffer, BUF_SIZE)) != 0) {
-            std::cout << "antes de fwrite servidor" << buffer << '\n';
             peer->socket_send(buffer, bytes_received);
             shutdown(peer->get_fd(), SHUT_WR);
         }
