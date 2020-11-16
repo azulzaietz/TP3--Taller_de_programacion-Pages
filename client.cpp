@@ -19,10 +19,7 @@ void Client:: send_message() {
     std::string line;
 
     while (std::getline(std::cin, line)) {
-        std::cout << "cliente esta por mandar mensaje: " << line << '\n';
         this->socket->socket_send(line.c_str(), line.length());
-        std::cout << "cliente mandó mensaje: " << line << '\n';
-        //fwrite(buffer, sizeof(char), bytes_received, stdout);
     }
     shutdown(this->socket->get_fd(), SHUT_WR); 
 }
