@@ -1,11 +1,11 @@
 #include "client.h"
 
 int main(int argc, char* const* argv) {
-    if (argc != 3) return -1;
+    if (argc != 3) return 0;
     Client client(argc, argv);
     
     if (!client.connect_to_server()) {
-        return -1;
+        return 0;
     }
 
     client.send_message();

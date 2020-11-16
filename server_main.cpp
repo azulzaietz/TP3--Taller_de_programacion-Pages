@@ -2,11 +2,11 @@
 #include "thread_acceptor.h"
 
 int main(int argc, char* const* argv) {
-    if (argc != 3) return -1;
+    if (argc != 3) return 1;
 
     Server server(argc, argv);
     if (!server.ready_to_receive()) {
-        return -1;
+        return 0;
     }
 
     server.start();
