@@ -6,25 +6,13 @@ ThreadAcceptor:: ThreadAcceptor(Socket& s) {
 
 void ThreadAcceptor:: run() {
     while (keep_running) {
-        try {
-            Socket* peer = new Socket();
-            peer->socket_accept(&this->socket);
-            clients.push_back(new ThreadClient(peer));
-            clients.back()->start();
-        } catch (...) {
+        Socket* peer = new Socket();
+        if (peer->socket_accept(&this->socket) < 0){
             break;
         }
+        clients.push_back(new ThreadClient(peer));
+        clients.back()->start();
     } 
-}
-
-void ThreadAcceptor:: stop() {
-    this->keep_running = false;
-    delete &this->socket;
-    std::list<ThreadClient*>::iterator it;
-    for (it = this->clients.begin(); 
-    it != this->clients.end(); ++it) {
-        (*it)->stop();
-    }
 }
 
 ThreadAcceptor:: ~ThreadAcceptor(){
