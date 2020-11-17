@@ -8,9 +8,11 @@
 #include <string>
 #include "thread.h"
 #include "socket.h"
+#include "http_processor.h"
 
 class ThreadClient: public Thread {
     Socket* peer;
+    HttpProcessor* processor;
 
     public:
     ThreadClient(Socket* peer);

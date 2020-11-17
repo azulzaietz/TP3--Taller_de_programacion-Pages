@@ -2,16 +2,20 @@
 
 ThreadClient:: ThreadClient(Socket* peer) {
     this->peer = peer;
+    this->processor = new HttpProcessor();
 }
 
 void ThreadClient:: run() {
-    char buffer[BUF_SIZE];
+    char buffer[4];
     ssize_t bytes_received = 0;
-    while ((bytes_received = peer->socket_receive(buffer, BUF_SIZE)) != 0) {
+    while ((bytes_received = peer->socket_receive(buffer, 4)) != 0) {
         if (bytes_received < 0) break;
-        peer->socket_send(buffer, bytes_received);
-        shutdown(peer->get_fd(), SHUT_WR);
+        std::string str(buffer);
+        this->processor->process(str); 
     }
+    peer->socket_send(this->processor->answer().c_str(), 
+        this->processor->answer().length());
+    shutdown(peer->get_fd(), SHUT_WR);
 }
 
 void ThreadClient:: stop() {
