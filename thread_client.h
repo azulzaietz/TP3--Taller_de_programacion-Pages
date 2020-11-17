@@ -9,13 +9,15 @@
 #include "thread.h"
 #include "socket.h"
 #include "http_processor.h"
+#include "data_base.h"
 
 class ThreadClient: public Thread {
     Socket* peer;
     HttpProcessor* processor;
+    DataBase data_base;
 
     public:
-    ThreadClient(Socket* peer);
+    ThreadClient(Socket* peer, DataBase& data_base);
     virtual void run() override;
     void stop();
     virtual ~ThreadClient() override;

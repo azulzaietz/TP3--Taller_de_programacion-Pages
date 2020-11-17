@@ -3,6 +3,7 @@
 
 #include "thread_acceptor.h"
 #include "socket.h"
+#include "data_base.h"
 
 class Server {
     private:
@@ -11,6 +12,7 @@ class Server {
         const char* key;
         Socket* socket;
         ThreadAcceptor* acceptor;
+        DataBase* data_base;
 
         void read_command_line(int argc, char* const* argv);
 

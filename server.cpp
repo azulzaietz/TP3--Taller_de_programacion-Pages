@@ -9,10 +9,11 @@ void Server:: read_command_line(int argc, char* const* argv) {
 Server:: Server(int argc, char* const* argv) {
     read_command_line(argc, argv);
     this->socket = new Socket();
+    this->data_base = new DataBase();
 }
 
 void Server:: start() {
-    this->acceptor = new ThreadAcceptor(*this->socket);
+    this->acceptor = new ThreadAcceptor(*this->socket, *this->data_base);
     acceptor->start();
 }
 

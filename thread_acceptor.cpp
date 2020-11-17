@@ -1,7 +1,8 @@
 #include "thread_acceptor.h"
 
-ThreadAcceptor:: ThreadAcceptor(Socket& s) {
+ThreadAcceptor:: ThreadAcceptor(Socket& s, DataBase& data_base) {
     this->socket = s;
+    this->data_base = data_base;
 }
 
 void ThreadAcceptor:: run() {
@@ -10,7 +11,7 @@ void ThreadAcceptor:: run() {
         if (peer->socket_accept(&this->socket) < 0){
             break;
         }
-        clients.push_back(new ThreadClient(peer));
+        clients.push_back(new ThreadClient(peer, this->data_base));
         clients.back()->start();
     } 
 }
