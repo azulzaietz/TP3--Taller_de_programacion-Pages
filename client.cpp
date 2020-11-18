@@ -19,15 +19,16 @@ void Client:: send_message() {
     std::string line;
 
     while (std::getline(std::cin, line)) {
+        //line += '\n';
         this->socket->socket_send(line.c_str(), line.length());
     }
     shutdown(this->socket->get_fd(), SHUT_WR); 
 }
 
 void Client:: receive_message() {
-    char buffer[64];
+    char buffer[BUF_SIZE];
     ssize_t bytes_received = 0;
-    while ((bytes_received = this->socket->socket_receive(buffer, 64)) != 0) {
+    while ((bytes_received = this->socket->socket_receive(buffer, BUF_SIZE)) != 0) {
         std::cout << buffer << '\n';
     }
 }

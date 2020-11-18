@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+#define BUF_SIZE 64
+
 class Client {
     private:
         const char* server_host;
