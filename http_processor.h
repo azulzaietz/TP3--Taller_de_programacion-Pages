@@ -7,16 +7,19 @@
 #include <sstream>
 #include "http_method.h"
 #include "data_base.h"
+#include "http_method_selector.h"
 
 class HttpProcessor {
     private:
         std::stringstream strstream;
         DataBase data_base;
+        HttpMethodSelector selector;
         HttpMethod* m;
-        char* method;
-        char* recurse;
-        char* protocol;
-        HttpMethod* find_method(char* method, char* recurse, char* protocol);
+        std::string method;
+        std::string recurse;
+        std::string protocol;
+        std::string body;
+        HttpMethod* find_method();
 
     public:
         HttpProcessor();

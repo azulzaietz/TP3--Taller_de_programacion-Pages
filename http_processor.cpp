@@ -8,15 +8,25 @@ void HttpProcessor:: process(std::string s) {
 }
 
 std::string HttpProcessor:: answer(DataBase& data_base) {
-    //this->method = find_method();
     this->data_base = data_base;
-    return this->strstream.str();
+    std::string word;
+    unsigned wordCount = 0;
+    bool body = false;
+    while (this->strstream >> word)
+    {
+        if (wordCount == 0) this->method = word;
+        if (wordCount == 1) this->recurse = word;
+        if (wordCount == 2) this->protocol = word;
+        std::cout << "palabra: " << word << '\n';
+        wordCount++;
+    }
+    this->m = find_method();
+    return this->method;
 }
 
-/*
-HttpMethod* HttpProcessor:: find_method(char* method, char* recurse, char* protocol) {
-    return new HttpMethod();
+HttpMethod* HttpProcessor:: find_method() {
+    return this->selector.select_method(this->method,
+        this->recurse, this->protocol);
 }
-*/
 
 HttpProcessor:: ~HttpProcessor() {}
