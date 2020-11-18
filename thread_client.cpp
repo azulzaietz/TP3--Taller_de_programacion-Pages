@@ -11,11 +11,11 @@ void ThreadClient:: run() {
     ssize_t bytes_received = 0;
     while ((bytes_received = peer->socket_receive(buffer, BUF_SIZE)) != 0) {
         if (bytes_received < 0) break;
-        std::string str(buffer);
-        this->processor->process(str, this->data_base); 
+        std::string str(buffer, bytes_received);
+        this->processor->process(str); 
     }
-    peer->socket_send(this->processor->answer().c_str(), 
-        this->processor->answer().length());
+    peer->socket_send(this->processor->answer(this->data_base).c_str(), 
+        this->processor->answer(this->data_base).length());
     shutdown(peer->get_fd(), SHUT_WR);
 }
 
