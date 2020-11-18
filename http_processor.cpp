@@ -12,8 +12,7 @@ std::string HttpProcessor:: answer(DataBase& data_base) {
     std::string word;
     unsigned wordCount = 0;
     bool body = false;
-    while (this->strstream >> word)
-    {
+    while (this->strstream >> word) {
         if (wordCount == 0) this->method = word;
         if (wordCount == 1) this->recurse = word;
         if (wordCount == 2) this->protocol = word;
@@ -21,7 +20,7 @@ std::string HttpProcessor:: answer(DataBase& data_base) {
         wordCount++;
     }
     this->m = find_method();
-    return this->method;
+    return this->m->send_answer(data_base);
 }
 
 HttpMethod* HttpProcessor:: find_method() {
