@@ -3,16 +3,16 @@
 
 #include "thread_acceptor.h"
 #include "socket.h"
-#include "data_base.h"
+#include <fstream>
 
 class Server {
     private:
         const char* server_port;
-        const char* method;
-        const char* key;
         Socket* socket;
         ThreadAcceptor* acceptor;
         DataBase* data_base;
+        char* fn;
+        std::stringstream html_content;
 
         void read_command_line(int argc, char* const* argv);
 
@@ -30,6 +30,10 @@ class Server {
         //para recibir conexiones de
         //multiples clientes
         void start();
+
+        //Lee el archivo html pasado
+        //como parametro y guarda su contenido
+        void read_html();
 
         //Acepta conexiones
         //Devuelve -1 en caso de error
