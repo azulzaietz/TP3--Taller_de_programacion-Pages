@@ -19,7 +19,7 @@ class Get: public HttpMethod {
             std::string& recurse, std::string& protocol, 
             std::string& body);
         //Devuelve el mensaje correspondiente
-        virtual const char* send_answer(DataBase& data_base) override;
+        virtual std::string send_answer(DataBase& data_base) override;
         virtual ~Get() override;
 };
 

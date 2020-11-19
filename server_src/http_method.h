@@ -15,7 +15,7 @@ class HttpMethod {
         //aplicar polimorfismo
         HttpMethod();
         //Devuelve el mensaje correspondiente
-        virtual const char* send_answer(DataBase& data_base);
+        virtual std::string send_answer(DataBase& data_base);
         virtual ~HttpMethod();
 };
 
