@@ -15,8 +15,13 @@ const char* HttpProcessor:: answer(DataBase& data_base) {
         if (wordCount == 0) this->method = word;
         if (wordCount == 1) this->recurse = word;
         if (wordCount == 2) this->protocol = word;
-        //std::cout << "palabra: " << word << '\n';
         wordCount++;
+        if (word == "START_BODY") {
+            while (std::getline(this->strstream, word)) {
+                this->body += word;
+                this->body += '\n';
+            }
+        }
     }
     this->m = find_method();
     return this->m->send_answer(data_base);

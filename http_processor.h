@@ -18,7 +18,7 @@ class HttpProcessor {
         std::string method;
         std::string recurse;
         std::string protocol;
-        std::stringstream body;
+        std::string body;
         bool start_body = false;
         HttpMethod* find_method();
 
