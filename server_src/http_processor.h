@@ -27,7 +27,7 @@ class HttpProcessor {
 
         void process(std::string s);
 
-        const char* answer(DataBase& data_base);
+        std::string answer(DataBase& data_base);
 
         ~HttpProcessor();
 };
