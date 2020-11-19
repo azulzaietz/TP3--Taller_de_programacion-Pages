@@ -1,9 +1,9 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "../common_scr/socket.h"
 #include <iostream>
 #include <string>
+#include "../common_src/socket.h"
 
 #define BUF_SIZE 64
 
