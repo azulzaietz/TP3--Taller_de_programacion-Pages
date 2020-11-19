@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 #include "thread.h"
-#include "../common_scr/socket.h"
+#include "../common_src/socket.h"
 #include "http_processor.h"
 #include "data_base.h"
 
