@@ -95,7 +95,7 @@ ssize_t Socket:: socket_send(const char* buffer, size_t length){
 	if (length == 0) return 0;
 
     int remaining_bytes = length;
-    int total_bytes_sent = 0;
+    size_t total_bytes_sent = 0;
 
     while (total_bytes_sent < length) {
         ssize_t bytes = send(this->fd, &buffer[total_bytes_sent], 
@@ -118,7 +118,7 @@ ssize_t Socket:: socket_receive(char* buffer, size_t length){
 	if (length == 0) return 0;
 
     int remaining_bytes = length;
-    int total_bytes_received = 0;
+    size_t total_bytes_received = 0;
 
     while (total_bytes_received < length) {
         ssize_t bytes = recv(this->fd, &buffer[total_bytes_received],
