@@ -3,7 +3,7 @@
 
 HttpProcessor:: HttpProcessor() {}
 
-void HttpProcessor:: process(std::string s) {
+void HttpProcessor:: process(const std::string s) {
     this->strstream << s;
 }
 

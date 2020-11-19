@@ -17,7 +17,7 @@ class ThreadClient: public Thread {
     DataBase data_base;
 
     public:
-    ThreadClient(Socket* peer, DataBase& data_base);
+    ThreadClient(Socket* peer, const DataBase& data_base);
     virtual void run() override;
     void stop();
     virtual ~ThreadClient() override;

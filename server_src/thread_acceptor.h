@@ -18,7 +18,7 @@ class ThreadAcceptor: public Thread {
     std::atomic<bool> keep_running{true};
 
     public:
-    ThreadAcceptor(Socket& socket, DataBase& data_base);
+    ThreadAcceptor(const Socket& socket, const DataBase& data_base);
     virtual void run() override;
     void stop();
     virtual ~ThreadAcceptor() override;

@@ -1,6 +1,6 @@
 #include "thread_client.h"
 
-ThreadClient:: ThreadClient(Socket* peer, DataBase& data_base) {
+ThreadClient:: ThreadClient(Socket* peer, const DataBase& data_base) {
     this->peer = peer;
     this->processor = new HttpProcessor();
     this->data_base = data_base;

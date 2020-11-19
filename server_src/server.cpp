@@ -1,18 +1,18 @@
 #include "server.h"
 #include <string>
 
-//Lee los parametros pasados por linea de comandos para
-//inicializar el servidor.
-void Server:: read_command_line(int argc, char* const* argv) {	
-    this->server_port = argv[1];
-    this->fn = argv[2];
-}
-
 Server:: Server(int argc, char* const* argv) {
     read_command_line(argc, argv);
     this->socket = new Socket();
     this->data_base = new DataBase();
     read_html();
+}
+
+//Lee los parametros pasados por linea de comandos para
+//inicializar el servidor.
+void Server:: read_command_line(int argc, char* const* argv) {	
+    this->server_port = argv[1];
+    this->fn = argv[2];
 }
 
 void Server:: read_html() {

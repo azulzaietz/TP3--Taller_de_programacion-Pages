@@ -1,6 +1,6 @@
 #include "thread_acceptor.h"
 
-ThreadAcceptor:: ThreadAcceptor(Socket& s, DataBase& data_base) {
+ThreadAcceptor:: ThreadAcceptor(const Socket& s, const DataBase& data_base) {
     this->socket = s;
     this->data_base = data_base;
 }
