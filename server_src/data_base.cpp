@@ -6,7 +6,7 @@ void DataBase:: post(std::string key, std::string value) {
     this->https_data.insert({key, value});
 }
 
-std::string DataBase:: get(std::string key) {
+std::string DataBase::get(std::string key) {
     try {
         return this->https_data.at(key);
     } catch (const std::out_of_range &) {

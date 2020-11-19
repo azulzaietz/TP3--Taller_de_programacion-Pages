@@ -9,7 +9,7 @@ PostR:: PostR(const std::string method,
         this->body = body;
 }
 
-std::string PostR:: send_answer(DataBase& data_base) {
+std::string PostR::send_answer(DataBase& data_base) {
     data_base.post(this->recurse, this->body);
     std::string answer("HTTP/1.1 200 OK\n\n" + this->body);
     return answer;

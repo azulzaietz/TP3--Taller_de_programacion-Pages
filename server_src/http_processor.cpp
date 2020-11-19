@@ -7,7 +7,7 @@ void HttpProcessor:: process(const std::string s) {
     this->strstream << s;
 }
 
-std::string HttpProcessor:: answer(DataBase& data_base) {
+std::string HttpProcessor::answer(DataBase& data_base) {
     this->data_base = data_base;
     std::string word;
     unsigned wordCount = 0;

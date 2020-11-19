@@ -9,7 +9,7 @@ Post:: Post(const std::string method,
         this->body = body;
 }
 
-std::string Post:: send_answer(DataBase& data_base) {
+std::string Post::send_answer(DataBase& data_base) {
     return std::string("HTTP/1.1 403 FORBIDDEN\n\n");
 }
 

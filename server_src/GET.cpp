@@ -9,7 +9,7 @@ Get:: Get(const std::string method,
         this->body = body;
 }
 
-std::string Get:: send_answer(DataBase& data_base) {
+std::string Get::send_answer(DataBase& data_base) {
     std::string answer(
         "HTTP/1.1 200 OK\nContent-Type: text/html\n\n" +
         data_base.get("body"));

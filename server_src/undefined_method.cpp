@@ -9,7 +9,7 @@ UndefinedMethod:: UndefinedMethod(std::string method,
         this->body = body;
 }
 
-std::string UndefinedMethod:: send_answer(DataBase& data_base) {
+std::string UndefinedMethod::send_answer(DataBase& data_base) {
     return std::string("HTTP/1.1 405 METHOD NOT ALLOWED\n\n");
 }
 
