@@ -29,7 +29,7 @@ const char* HttpProcessor:: answer(DataBase& data_base) {
 
 HttpMethod* HttpProcessor:: find_method() {
     return this->selector.select_method(this->method,
-        this->recurse, this->protocol);
+        this->recurse, this->protocol, this->body);
 }
 
 HttpProcessor:: ~HttpProcessor() {}

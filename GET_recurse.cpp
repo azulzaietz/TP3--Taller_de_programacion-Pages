@@ -1,10 +1,13 @@
 #include "GET_recurse.h"
 
 GetR:: GetR(std::string method, 
-    std::string recurse, std::string protocol) {
+    std::string recurse, std::string protocol,
+    std::string body) {
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;
+        this->body = body;
+        
 }
 
 const char* GetR:: send_answer(DataBase& data_base) {

@@ -15,7 +15,7 @@ class HttpMethodSelector {
         HttpMethodSelector();
         //Devuelve el mensaje correspondiente
         HttpMethod* select_method(std::string method, 
-            std::string recurse, std::string protocol);
+            std::string recurse, std::string protocol, std::string body);
         virtual ~HttpMethodSelector();
 };
 

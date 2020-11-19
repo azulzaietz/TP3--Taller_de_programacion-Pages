@@ -5,6 +5,7 @@ UndefinedMethod:: UndefinedMethod(std::string method,
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;
+        this->body = body;
 }
 
 const char* UndefinedMethod:: send_answer(DataBase& data_base) {
