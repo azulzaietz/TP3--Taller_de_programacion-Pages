@@ -1,7 +1,8 @@
 #include "undefined_method.h"
 
 UndefinedMethod:: UndefinedMethod(std::string method, 
-    std::string recurse, std::string protocol) {
+    std::string recurse, std::string protocol,
+    std::string body) {
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;
