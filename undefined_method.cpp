@@ -7,7 +7,7 @@ UndefinedMethod:: UndefinedMethod(std::string method,
         this->protocol = protocol;
 }
 
-char* UndefinedMethod:: send_answer(DataBase& data_base) {
+const char* UndefinedMethod:: send_answer(DataBase& data_base) {
     return "HTTP/1.1 405 METHOD NOT ALLOWED\n\n";
 }
 

@@ -19,8 +19,13 @@ void Client:: send_message() {
     std::string line;
 
     while (std::getline(std::cin, line)) {
-        line += '\n';
-        this->socket->socket_send(line.c_str(), line.length());
+        if (line.empty()) {
+            std::string body("START_BODY\n");
+            this->socket->socket_send(body.c_str(), body.length());
+        } else {
+            line += '\n';
+            this->socket->socket_send(line.c_str(), line.length());
+        }
     }
     shutdown(this->socket->get_fd(), SHUT_WR); 
 }

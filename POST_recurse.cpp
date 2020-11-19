@@ -7,8 +7,12 @@ PostR:: PostR(std::string method,
         this->protocol = protocol;
 }
 
-char* PostR:: send_answer(DataBase& data_base) {
-
+const char* PostR:: send_answer(DataBase& data_base) {
+    data_base.post(this->recurse, this->body);
+    //std::stringstream final_answer;
+    //std::string answer("HTTP/1.1 200 OK\n\n");
+    //final_answer << answer << this->body;
+    return "HTTP/1.1 200 OK\n\n";
 }
 
 PostR:: ~PostR() {}

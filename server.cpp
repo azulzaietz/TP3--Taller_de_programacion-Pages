@@ -27,6 +27,7 @@ void Server:: read_html() {
     } else { 
         std::cout << "Unable to open file"; 
     }
+    this->data_base->post("body", this->html_content.str());
 }
 
 void Server:: start() {

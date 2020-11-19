@@ -14,8 +14,8 @@ void ThreadClient:: run() {
         std::string str(buffer, bytes_received);
         this->processor->process(str); 
     }
-    peer->socket_send(this->processor->answer(this->data_base).c_str(), 
-        this->processor->answer(this->data_base).length());
+    peer->socket_send(this->processor->answer(this->data_base), 
+        std::string(this->processor->answer(this->data_base)).length());
     shutdown(peer->get_fd(), SHUT_WR);
 }
 

@@ -18,7 +18,8 @@ class HttpProcessor {
         std::string method;
         std::string recurse;
         std::string protocol;
-        std::string body;
+        std::stringstream body;
+        bool start_body = false;
         HttpMethod* find_method();
 
     public:
@@ -26,7 +27,7 @@ class HttpProcessor {
 
         void process(std::string s);
 
-        std::string answer(DataBase& data_base);
+        const char* answer(DataBase& data_base);
 
         ~HttpProcessor();
 };

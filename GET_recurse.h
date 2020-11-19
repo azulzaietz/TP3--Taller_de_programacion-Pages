@@ -17,7 +17,7 @@ class GetR: public HttpMethod {
         explicit GetR(std::string method, 
             std::string recurse, std::string protocol);
         //Devuelve el mensaje correspondiente
-        virtual char* send_answer(DataBase& data_base) override;
+        virtual const char* send_answer(DataBase& data_base) override;
         virtual ~GetR() override;
 };
 

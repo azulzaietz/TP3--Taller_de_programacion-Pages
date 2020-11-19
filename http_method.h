@@ -5,6 +5,7 @@
 #include <list>
 #include <algorithm>
 #include <string>
+#include <sstream>
 #include "data_base.h"
 
 class HttpMethod {
@@ -14,7 +15,7 @@ class HttpMethod {
         //aplicar polimorfismo
         HttpMethod();
         //Devuelve el mensaje correspondiente
-        virtual char* send_answer(DataBase& data_base);
+        virtual const char* send_answer(DataBase& data_base);
         virtual ~HttpMethod();
 };
 

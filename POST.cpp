@@ -7,8 +7,8 @@ Post:: Post(std::string method,
         this->protocol = protocol;
 }
 
-char* Post:: send_answer(DataBase& data_base) {
-
+const char* Post:: send_answer(DataBase& data_base) {
+    return "HTTP/1.1 403 FORBIDDEN\n\n";
 }
 
 Post:: ~Post() {}
