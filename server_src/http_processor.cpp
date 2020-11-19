@@ -31,8 +31,7 @@ std::string HttpProcessor:: answer(DataBase& data_base) {
     }
 
     std::cout << first_line.c_str() << '\n';
-    this->m = find_method();
-    return this->m->send_answer(data_base);
+    return find_method()->send_answer(data_base);
 }
 
 HttpMethod* HttpProcessor:: find_method() {

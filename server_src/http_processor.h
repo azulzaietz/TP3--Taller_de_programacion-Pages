@@ -14,7 +14,6 @@ class HttpProcessor {
         std::stringstream strstream;
         DataBase data_base;
         HttpMethodSelector selector;
-        HttpMethod* m;
         std::string method;
         std::string recurse;
         std::string protocol;
