@@ -1,7 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "socket.h"
+#include "../common_scr/socket.h"
 #include <iostream>
 #include <string>
 

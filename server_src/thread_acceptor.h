@@ -7,7 +7,7 @@
 #include <atomic>
 #include <iostream>
 #include "thread.h"
-#include "socket.h"
+#include "../common_scr/socket.h"
 #include "thread_client.h"
 #include "data_base.h"
 

@@ -2,7 +2,7 @@
 #define SERVER_H
 
 #include "thread_acceptor.h"
-#include "socket.h"
+#include "../common_scr/socket.h"
 #include <fstream>
 
 class Server {
