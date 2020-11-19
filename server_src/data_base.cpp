@@ -9,7 +9,7 @@ void DataBase:: post(std::string key, std::string value) {
 std::string DataBase:: get(std::string key) {
     try {
         return this->https_data.at(key);
-    } catch (std::out_of_range) {
+    } catch (const std::out_of_range &) {
         return "";
     }
 }
