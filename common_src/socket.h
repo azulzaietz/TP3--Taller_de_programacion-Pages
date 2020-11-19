@@ -40,7 +40,9 @@ class Socket {
         //Devuelve el fd asociado al socket
         int& get_fd();
 
-        //Acepta una conexion y devuelve el fd en caso exitoso, -1 en caso de error.
+        //Acepta una conexion y devuelve
+        // el fd en caso exitoso, 
+        //-1 en caso de error.
         int socket_accept(Socket* listener);
 
         //Devuelve true si la conexión fue exitosa, false en caso de error.

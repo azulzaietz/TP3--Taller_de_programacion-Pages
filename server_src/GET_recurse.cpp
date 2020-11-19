@@ -6,8 +6,7 @@ GetR:: GetR(std::string& method,
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;
-        this->body = body;
-        
+        this->body = body; 
 }
 
 std::string GetR:: send_answer(DataBase& data_base) {

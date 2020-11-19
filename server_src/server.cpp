@@ -1,4 +1,5 @@
 #include "server.h"
+#include <string>
 
 //Lee los parametros pasados por linea de comandos para
 //inicializar el servidor.

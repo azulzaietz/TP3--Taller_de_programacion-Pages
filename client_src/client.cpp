@@ -33,7 +33,8 @@ void Client:: send_message() {
 void Client:: receive_message() {
     char buffer[BUF_SIZE];
     ssize_t bytes_received = 0;
-    while ((bytes_received = this->socket->socket_receive(buffer, BUF_SIZE)) != 0) {
+    while ((bytes_received = 
+        this->socket->socket_receive(buffer, BUF_SIZE)) != 0) {
         std::string str(buffer, bytes_received);
         std::cout << str.c_str();
     }

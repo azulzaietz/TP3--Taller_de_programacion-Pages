@@ -3,7 +3,7 @@
 HttpMethod:: HttpMethod() {}
 
 std::string HttpMethod:: send_answer(DataBase& data_base) {
-    return "";
+    return std::string("");
 }
 
 HttpMethod:: ~HttpMethod() {}
