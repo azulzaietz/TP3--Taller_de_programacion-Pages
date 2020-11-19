@@ -15,9 +15,9 @@ class Post: public HttpMethod {
     public:
         //Inicializa el tipo de instruccion
         //con sus parametros
-        explicit Post(std::string method, 
-            std::string recurse, std::string protocol,
-            std::string body);
+        explicit Post(std::string& method, 
+            std::string& recurse, std::string& protocol,
+            std::string& body);
         //Devuelve el mensaje correspondiente
         virtual const char* send_answer(DataBase& data_base) override;
         virtual ~Post() override;

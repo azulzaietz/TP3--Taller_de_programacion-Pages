@@ -7,8 +7,8 @@
 
 HttpMethodSelector:: HttpMethodSelector() {}
 
-HttpMethod* HttpMethodSelector:: select_method(std::string method, 
-    std::string recurse, std::string protocol, std::string body) {
+HttpMethod* HttpMethodSelector:: select_method(std::string& method, 
+    std::string& recurse, std::string& protocol, std::string& body) {
         if (method == "POST") {
             if (recurse.length() == 1) {
                 return new Post(method, recurse, protocol, body);

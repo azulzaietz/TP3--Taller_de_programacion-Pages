@@ -1,8 +1,8 @@
 #include "POST.h"
 
-Post:: Post(std::string method, 
-    std::string recurse, std::string protocol,
-    std::string body) {
+Post:: Post(std::string& method, 
+    std::string& recurse, std::string& protocol,
+    std::string& body) {
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;
