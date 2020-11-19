@@ -15,9 +15,10 @@ class Get: public HttpMethod {
     public:
         //Inicializa el tipo de instruccion
         //con sus parametros
-        explicit Get(const std::string method, 
-            const std::string recurse, const std::string protocol, 
-            const std::string body);
+        explicit Get(const std::string& method, 
+            const std::string& recurse,
+            const std::string& protocol,
+            const std::string& body);
         //Devuelve el mensaje correspondiente
         virtual std::string send_answer(DataBase& data_base) override;
         virtual ~Get() override;

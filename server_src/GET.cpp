@@ -1,8 +1,9 @@
 #include "GET.h"
 
-Get:: Get(const std::string method, 
-    const std::string recurse, const std::string protocol, 
-    const std::string body) {
+Get:: Get(const std::string& method, 
+    const std::string& recurse,
+    const std::string& protocol,
+    const std::string& body) {
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;
