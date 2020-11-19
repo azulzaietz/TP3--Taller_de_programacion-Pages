@@ -1,7 +1,9 @@
 #define _POSIX_C_SOURCE 200112L
 #include "socket.h"
 
-Socket:: Socket(){}
+Socket:: Socket(){
+    this->fd = -1;
+}
 
 struct addrinfo* Socket:: _get_addrinfo
 (const char* host, const char* service, int flags) {

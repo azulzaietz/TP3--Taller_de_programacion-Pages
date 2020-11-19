@@ -11,8 +11,6 @@ class Client {
     private:
         const char* server_host;
         const char* server_port;
-        const char* method;
-        const char* key;
         Socket* socket;
 
         void read_command_line(int argc, char* const* argv);

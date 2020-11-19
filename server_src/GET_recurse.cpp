@@ -1,8 +1,8 @@
 #include "GET_recurse.h"
 
-GetR:: GetR(std::string& method, 
-    std::string& recurse, std::string& protocol,
-    std::string& body) {
+GetR:: GetR(const std::string method, 
+    const std::string recurse, const std::string protocol, 
+    const std::string body) {
         this->method = method;
         this->recurse = recurse;
         this->protocol = protocol;

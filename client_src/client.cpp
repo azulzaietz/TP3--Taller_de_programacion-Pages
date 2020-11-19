@@ -2,6 +2,7 @@
 
 Client:: Client(int argc, char* const* argv){
     read_command_line(argc, argv);
+    this->socket = new Socket();
 }
 
 //Lee los parametros de la linea de comandos
@@ -11,7 +12,6 @@ void Client:: read_command_line(int argc, char* const* argv) {
 }
 
 bool Client:: connect_to_server() {
-    this->socket = new Socket();
     return this->socket->socket_connect(this->server_host, this->server_port);
 }
 

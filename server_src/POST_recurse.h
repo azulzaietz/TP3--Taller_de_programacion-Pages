@@ -15,9 +15,9 @@ class PostR: public HttpMethod {
     public:
         //Inicializa el tipo de instruccion
         //con sus parametros
-        explicit PostR(std::string& method, 
-            std::string& recurse, std::string& protocol,
-            std::string& body);
+        explicit PostR(const std::string method, 
+            const std::string recurse, const std::string protocol, 
+            const std::string body);
         //Devuelve el mensaje correspondiente
         virtual std::string send_answer(DataBase& data_base) override;
         virtual ~PostR() override;
