@@ -23,5 +23,6 @@ ThreadAcceptor:: ~ThreadAcceptor(){
     for (it = this->clients.begin(); 
     it != this->clients.end(); ++it) {
         (*it)->stop();
+        (*it)->join();
     }
 }
