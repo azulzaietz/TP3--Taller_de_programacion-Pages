@@ -24,7 +24,7 @@ class HttpProcessor {
     public:
         HttpProcessor();
 
-        void process(const std::string s);
+        void process(const std::string& s);
 
         std::string answer(DataBase& data_base);
 
