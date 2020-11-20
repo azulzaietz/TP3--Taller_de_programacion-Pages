@@ -13,7 +13,7 @@ class Server {
         DataBase* data_base;
         char* fn;
         std::stringstream html_content;
-
+        Server &operator=(const Server& s);
         void read_command_line(int argc, char* const* argv);
 
     public:

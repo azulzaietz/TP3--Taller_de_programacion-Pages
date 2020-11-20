@@ -28,6 +28,10 @@ class HttpProcessor {
 
         std::string answer(DataBase& data_base);
 
+        void operator()(std::string word) {
+            this->body += word;
+        }
+
         ~HttpProcessor();
 };
 

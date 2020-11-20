@@ -12,7 +12,7 @@ class Client {
         const char* server_host;
         const char* server_port;
         Socket* socket;
-
+        Client &operator=(const Client& s);
         void read_command_line(int argc, char* const* argv);
 
     public:

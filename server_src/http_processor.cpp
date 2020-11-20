@@ -24,8 +24,8 @@ std::string HttpProcessor::answer(DataBase& data_base) {
         wordCount++;
         if (word == "START_BODY") {
             while (std::getline(this->strstream, word)) {
-                this->body += word;
-                this->body += '\n';
+                (*this)(word);
+                (*this)("\n");
             }
         }
     }
