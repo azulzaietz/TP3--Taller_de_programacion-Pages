@@ -21,6 +21,7 @@ class Server {
         //Post: el servidor esta listo para ser usado y recibir
         //mensajes.
         Server(int argc, char* const* argv);
+        Server(const Server &s);
 
         //Recibe un mensaje cifrado del cliente y lo muestra 
         //descifrado por salida estándar.
