@@ -12,7 +12,8 @@ void ThreadClient:: run() {
     while ((bytes_received = peer->socket_receive(buffer, BUF_SIZE)) != 0) {
         if (bytes_received < 0) break;
         std::string str(buffer, bytes_received);
-        this->processor->process(str); 
+        std::lock_guard<std::mutex> lock(this->mtx);
+        this->processor->process(str);
     }
     std::string answer = this->processor->answer(this->data_base);
     peer->socket_send(answer.c_str(), 
