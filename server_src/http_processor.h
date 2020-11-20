@@ -28,7 +28,7 @@ class HttpProcessor {
 
         std::string answer(DataBase& data_base);
 
-        void operator()(std::string word) {
+        void operator()(const std::string& word) {
             this->body += word;
         }
 
