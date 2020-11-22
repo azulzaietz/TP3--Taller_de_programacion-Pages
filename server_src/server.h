@@ -8,9 +8,9 @@
 class Server {
     private:
         const char* server_port;
-        Socket* socket;
+        Socket socket;
         ThreadAcceptor* acceptor;
-        DataBase* data_base;
+        DataBase data_base;
         char* fn;
         std::stringstream html_content;
         Server &operator=(const Server& s);

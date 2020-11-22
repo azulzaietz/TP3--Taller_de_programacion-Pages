@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <mutex>
+#include <atomic>
 #include "thread.h"
 #include "../common_src/socket.h"
 #include "http_processor.h"
@@ -17,11 +18,13 @@ class ThreadClient: public Thread {
     HttpProcessor* processor;
     DataBase data_base;
     std::mutex mtx;
+    std::atomic<bool> dead{false};
 
     public:
     ThreadClient(Socket* peer, const DataBase& data_base);
     virtual void run() override;
     void stop();
+    bool is_dead();
     virtual ~ThreadClient() override;
 };
 

@@ -3,8 +3,6 @@
 
 Server:: Server(int argc, char* const* argv) {
     read_command_line(argc, argv);
-    this->socket = new Socket();
-    this->data_base = new DataBase();
     read_html();
 }
 
@@ -28,16 +26,16 @@ void Server:: read_html() {
     } else { 
         std::cout << "Unable to open file"; 
     }
-    this->data_base->post("body", this->html_content.str());
+    this->data_base.post("body", this->html_content.str());
 }
 
 void Server:: start() {
-    this->acceptor = new ThreadAcceptor(*this->socket, *this->data_base);
+    this->acceptor = new ThreadAcceptor(this->socket, this->data_base);
     acceptor->start();
 }
 
 bool Server:: ready_to_receive() {
-    return this->socket->socket_bind_and_listen(NULL, this->server_port);
+    return this->socket.socket_bind_and_listen(NULL, this->server_port);
 }
 
 Server:: ~Server() {}

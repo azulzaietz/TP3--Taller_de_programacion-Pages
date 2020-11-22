@@ -140,9 +140,6 @@ ssize_t Socket:: socket_receive(char* buffer, size_t length){
 }
 
 Socket:: ~Socket(){
-    if (shutdown(this->fd, SHUT_RDWR) == -1) {
-		fprintf(stderr, "socket_uninit-->shutdown: %s\n", strerror(errno));
-    } 
     if (close(this->fd) == -1) {
 		fprintf(stderr, "socket_uninit-->close: %s\n", strerror(errno));
     }
