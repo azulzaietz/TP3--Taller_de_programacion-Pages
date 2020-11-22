@@ -60,9 +60,7 @@ int& Socket:: get_fd(){
 int Socket:: socket_accept(Socket* listener){    
 	if ((this->fd = accept(listener->get_fd(), NULL, NULL)) < 0) {
 		fprintf(stderr, "socket_accept-->accept: %s\n", strerror(errno));
-        return this->fd;
 	}
-    
 	return this->fd;
 }
 
