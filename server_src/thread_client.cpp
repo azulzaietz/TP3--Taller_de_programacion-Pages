@@ -20,14 +20,7 @@ void ThreadClient:: run() {
         peer->socket_send(answer.c_str(), 
             answer.length());
         shutdown(peer->get_fd(), SHUT_WR);
-        this->dead = true;
-    } catch (...) {
-
-    }  
-}
-
-bool ThreadClient::is_dead() {
-    return this->dead;
+    } catch (...) {}  
 }
 
 void ThreadClient:: stop() {
