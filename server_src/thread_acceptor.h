@@ -21,7 +21,6 @@ class ThreadAcceptor: public Thread {
     ThreadAcceptor(const Socket& socket, const DataBase& data_base);
     virtual void run() override;
     void stop();
-    void garbage_collector();
     virtual ~ThreadAcceptor() override;
 };
 
