@@ -2,8 +2,7 @@
 #include <string>
 
 HttpProcessor:: HttpProcessor() {
-    this->m = this->selector.select_method(this->method,
-        this->recurse, this->protocol, this->body);
+    this->m = NULL;
 }
 
 void HttpProcessor:: process(const std::string& s) {
@@ -34,6 +33,8 @@ std::string HttpProcessor::answer(DataBase& data_base) {
     }
 
     std::cout << first_line.c_str() << '\n';
+    this->m = this->selector.select_method(this->method,
+        this->recurse, this->protocol, this->body);
     return this->m->send_answer(data_base);
 }
 
