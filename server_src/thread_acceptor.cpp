@@ -18,6 +18,16 @@ void ThreadAcceptor:: run() {
     }
 }
 
+void ThreadAcceptor:: stop() {
+    this->keep_running = false;
+    std::list<ThreadClient*>::iterator it;
+    for (it = this->clients.begin(); 
+    it != this->clients.end(); ++it) {
+        (*it)->stop();
+        (*it)->join();
+    }
+}
+
 ThreadAcceptor:: ~ThreadAcceptor(){
     this->keep_running = false;
     std::list<ThreadClient*>::iterator it;
