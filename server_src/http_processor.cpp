@@ -31,12 +31,15 @@ std::string HttpProcessor::answer(DataBase& data_base) {
     }
 
     std::cout << first_line.c_str() << '\n';
-    return find_method()->send_answer(data_base);
+    find_method();
+    return this->m->send_answer(data_base);
 }
 
-HttpMethod* HttpProcessor:: find_method() {
-    return this->selector.select_method(this->method,
+void HttpProcessor:: find_method() {
+    this->m = this->selector.select_method(this->method,
         this->recurse, this->protocol, this->body);
 }
 
-HttpProcessor:: ~HttpProcessor() {}
+HttpProcessor:: ~HttpProcessor() {
+    delete this->m;
+}

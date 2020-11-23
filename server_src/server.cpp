@@ -40,4 +40,6 @@ bool Server:: ready_to_receive() {
 
 Server:: ~Server() {
     this->acceptor->stop();
+    this->acceptor->join();
+    delete this->acceptor;
 }

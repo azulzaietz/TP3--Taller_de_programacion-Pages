@@ -8,9 +8,8 @@ ThreadAcceptor:: ThreadAcceptor(const Socket& s, const DataBase& data_base) {
 void ThreadAcceptor:: run() {
     while (keep_running) {
         Socket* peer = new Socket();
-        try {
-            peer->socket_accept(&this->socket);
-        } catch (...) {
+        if (peer->socket_accept(&this->socket) < 0) {
+            delete peer;
             break;
         }
         clients.push_back(new ThreadClient(peer, this->data_base));
@@ -20,20 +19,14 @@ void ThreadAcceptor:: run() {
 
 void ThreadAcceptor:: stop() {
     this->keep_running = false;
+    shutdown(this->socket.get_fd(), SHUT_RDWR);
+    close(this->socket.get_fd());
     std::list<ThreadClient*>::iterator it;
     for (it = this->clients.begin(); 
     it != this->clients.end(); ++it) {
         (*it)->stop();
-        (*it)->join();
+        delete (*it);
     }
 }
 
-ThreadAcceptor:: ~ThreadAcceptor(){
-    this->keep_running = false;
-    std::list<ThreadClient*>::iterator it;
-    for (it = this->clients.begin(); 
-    it != this->clients.end(); ++it) {
-        (*it)->stop();
-        (*it)->join();
-    }
-}
+ThreadAcceptor:: ~ThreadAcceptor(){}

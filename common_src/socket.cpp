@@ -59,7 +59,7 @@ int& Socket:: get_fd(){
 
 int Socket:: socket_accept(Socket* listener){    
 	if ((this->fd = accept(listener->get_fd(), NULL, NULL)) < 0) {
-		fprintf(stderr, "socket_accept-->accept: %s\n", strerror(errno));
+		//fprintf(stderr, "socket_accept-->accept: %s\n", strerror(errno));
 	}
 	return this->fd;
 }
@@ -138,7 +138,9 @@ ssize_t Socket:: socket_receive(char* buffer, size_t length){
 }
 
 Socket:: ~Socket(){
-    if (close(this->fd) == -1) {
-		fprintf(stderr, "socket_uninit-->close: %s\n", strerror(errno));
+    if (this->fd != -1) {
+        if (close(this->fd) == -1) {
+		    //fprintf(stderr, "socket_uninit-->close: %s\n", strerror(errno));
+        }
     }
 }

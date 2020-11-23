@@ -18,6 +18,7 @@ class ThreadClient: public Thread {
     HttpProcessor* processor;
     DataBase data_base;
     std::mutex mtx;
+    std::atomic<bool> keep_running{true};
     std::atomic<bool> dead{false};
 
     public:

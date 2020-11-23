@@ -19,7 +19,8 @@ class HttpProcessor {
         std::string protocol;
         std::string body;
         bool start_body = false;
-        HttpMethod* find_method();
+        HttpMethod* m;
+        void find_method();
 
     public:
         HttpProcessor();
