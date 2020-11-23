@@ -32,7 +32,6 @@ void ThreadClient:: run() {
 
 void ThreadClient:: stop() {
     keep_running = false;
-    std::cout << "stop cliente\n";
     delete this->peer;
 }
 
