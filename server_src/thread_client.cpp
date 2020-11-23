@@ -21,7 +21,7 @@ void ThreadClient:: run() {
             std::lock_guard<std::mutex> lock(this->mtx);
             this->processor->process(str);
         } catch (...) {
-            if(!keep_running) break;
+            if (!keep_running) break;
         } 
     }
     std::string answer = this->processor->answer(this->data_base);
