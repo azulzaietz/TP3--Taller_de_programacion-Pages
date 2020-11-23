@@ -14,6 +14,21 @@ void ThreadAcceptor:: run() {
         }
         clients.push_back(new ThreadClient(peer, this->data_base));
         clients.back()->start();
+        this->garbage_collector();
+    }
+}
+
+void ThreadAcceptor:: garbage_collector() {
+    std::list<ThreadClient*>::iterator it;
+    it = this->clients.begin();
+    while (it != this->clients.end()) {
+        if ((*it)->is_dead()) {
+            (*it)->stop();
+            delete (*it);
+            it = this->clients.erase(it);
+        } else {
+            ++it;
+        }
     }
 }
 

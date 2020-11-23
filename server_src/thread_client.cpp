@@ -35,6 +35,10 @@ void ThreadClient:: stop() {
     delete this->peer;
 }
 
+bool ThreadClient:: is_dead() {
+    return this->dead;
+}
+
 ThreadClient:: ~ThreadClient(){
     this->join();
     delete this->processor;
