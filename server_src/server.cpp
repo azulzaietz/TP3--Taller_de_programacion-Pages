@@ -31,11 +31,13 @@ void Server:: read_html() {
 
 void Server:: start() {
     this->acceptor = new ThreadAcceptor(this->socket, this->data_base);
-    acceptor->start();
+    this->acceptor->start();
 }
 
 bool Server:: ready_to_receive() {
     return this->socket.socket_bind_and_listen(NULL, this->server_port);
 }
 
-Server:: ~Server() {}
+Server:: ~Server() {
+    this->acceptor->stop();
+}
