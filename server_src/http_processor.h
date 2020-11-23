@@ -20,7 +20,6 @@ class HttpProcessor {
         std::string body;
         bool start_body = false;
         HttpMethod* m;
-        void find_method();
 
     public:
         HttpProcessor();

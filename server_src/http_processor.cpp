@@ -1,7 +1,10 @@
 #include "http_processor.h"
 #include <string>
 
-HttpProcessor:: HttpProcessor() {}
+HttpProcessor:: HttpProcessor() {
+    this->m = this->selector.select_method(this->method,
+        this->recurse, this->protocol, this->body);
+}
 
 void HttpProcessor:: process(const std::string& s) {
     this->strstream << s;
@@ -31,13 +34,7 @@ std::string HttpProcessor::answer(DataBase& data_base) {
     }
 
     std::cout << first_line.c_str() << '\n';
-    find_method();
     return this->m->send_answer(data_base);
-}
-
-void HttpProcessor:: find_method() {
-    this->m = this->selector.select_method(this->method,
-        this->recurse, this->protocol, this->body);
 }
 
 HttpProcessor:: ~HttpProcessor() {
