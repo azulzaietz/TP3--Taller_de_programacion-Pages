@@ -1,0 +1,59 @@
+@startuml uml
+
+class server
+class client
+class socket
+class http_processor
+class http_method
+class http_method_selector
+class get
+class post
+class get_recurse
+class post_recurse
+class undefined_method
+class thread
+class thread_cliente
+class thread_acceptor
+
+server : char* method
+server : char* key
+server : char* server_port
+server : start()
+
+client : char* method
+client : char* key
+client : char* server_port
+client : char* server_host
+client : connect_to_server()
+client : send_message()
+client : receive_message()
+
+socket : int fd
+socket : socket_bind_and_listen()
+socket : socket_accept()
+socket : socket_connect()
+socket : socket_send()
+socket : socket_receive()
+
+http_method : send_answer()
+
+http_processor : process()
+http_processor : answer()
+
+http_method_selector : select_method()
+
+server *-- socket
+client *-- socket
+server *-- thread_acceptor
+thread <|-- thread_acceptor
+thread <|-- thread_cliente
+thread_acceptor *-- thread_cliente
+thread_cliente *-- http_processor
+http_processor *-- http_method_selector
+http_processor *-- http_method
+http_method <|-- get
+http_method <|-- get_recurse
+http_method <|-- post_recurse
+http_method <|-- post
+http_method <|-- undefined_method
+@enduml
